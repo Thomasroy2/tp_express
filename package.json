@@ -6,8 +6,13 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "mocha ./test/**/*.spec.js --reporter dot",
-    "test:watch": "mocha -w ./test/**/*.spec.js --reporter dot"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --report lcovonly -- -R spec && codecov",
+    "test:watch": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --report lcovonly -- -R spec && codecov"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "./controllers"
+    }
   },
   "author": "",
   "license": "ISC",
