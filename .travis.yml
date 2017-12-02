@@ -6,6 +6,7 @@ install:
   - npm i -g coveralls
   - npm i -g istanbul
 script:
+  - mocha ./test/**/*.spec.js --exit
   - istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --exit
   - cat ./coverage/lcov.info | coveralls
   
