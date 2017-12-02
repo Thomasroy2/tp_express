@@ -75,6 +75,18 @@ describe('CourselistController', () => {
         })
       })
     })
+    it('should reject with a 400 when unknown name is given', () => {
+      const mockName = 'Yalala?'
+      return request(app).delete('/course-lists').send({ name: mockName }).then((res) => {
+        res.status.should.equal(400)
+        res.body.should.eql({
+          error: {
+            code: 'VALIDATION',
+            message: 'Name not found'
+          }
+        })
+      })
+    })
     it('should  succesfuly delete a courseList', () => {
       const mockName = 'Toto'
       return request(app)
