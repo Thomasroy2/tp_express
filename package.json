@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "mocha ./test/**/*.spec.js --reporter dot",
+    "test": "mocha ./test/**/*.spec.js",
     "test:watch": "mocha -w ./test/**/*.spec.js",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
