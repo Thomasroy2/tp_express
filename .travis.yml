@@ -5,5 +5,5 @@ install:
   - npm i
   - npm i -g coveralls
 after_success:
-- ls ./coverage
+- ls
 - npm run coveralls
