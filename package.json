@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --report lcovonly -- -R spec && codecov --token=:33d5479f-500e-42f7-bd2b-1fc655355816",
-    "test:watch": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --report lcovonly -- -R spec && codecov --token=:33d5479f-500e-42f7-bd2b-1fc655355816"
+    "test": "mocha ./test/**/*.spec.js --reporter dot",
+    "test:watch": "mocha -w ./test/**/*.spec.js --reporter dot"
   },
   "config": {
     "blanket": {
