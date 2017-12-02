@@ -8,7 +8,7 @@
     "dev": "nodemon app.js",
     "test": "mocha ./test/**/*.spec.js --exit",
     "test:watch": "mocha -w ./test/**/*.spec.js --exit",
-    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --exit",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "config": {
