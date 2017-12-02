@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --report lcovonly -- -R spec && codecov",
-    "test:watch": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --report lcovonly -- -R spec && codecov"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --report lcovonly -- -R spec && codecov --token=:33d5479f-500e-42f7-bd2b-1fc655355816",
+    "test:watch": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --report lcovonly -- -R spec && codecov --token=:33d5479f-500e-42f7-bd2b-1fc655355816"
   },
   "config": {
     "blanket": {
@@ -19,6 +19,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "codecov": "^3.0.0",
     "istanbul": "^0.4.5",
     "lodash": "^4.17.4"
   },
