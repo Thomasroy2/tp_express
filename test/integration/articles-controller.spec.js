@@ -38,18 +38,34 @@ describe('ArticleslistController', () => {
                 })
             })
         })
-        it('should  succesfuly create a articleslist', () => {
-            const mockId = 1
-            const mockName = 'Anti dépresseur'
+        it('should reject with error code 400 when course list does not exist', () => {
+            const mockListId = 1337
+            const mockArticleName = 'Anti dépresseur'
             return request(app)
                 .post('/articles-lists')
-                .send({ id: mockId, name: mockName })
+                .send({ id: mockListId, name: mockArticleName })
+                .then((res) => {
+                    res.status.should.equal(400)
+                    res.body.should.eql({
+                        error: {
+                            code: 'VALIDATION',
+                            message: 'List does not exist'
+                        }
+                    })
+                })
+        })
+        it('should  succesfuly create an articles', () => {
+            const mockListId = 1
+            const mockArticleName = 'Anti dépresseur'
+            return request(app)
+                .post('/articles-lists')
+                .send({ id: mockListId, name: mockArticleName })
                 .then((res) => {
                     res.status.should.equal(200)
                     expect(res.body.data).to.be.an('object')
 
-                    const result = find(db.courseList, { id: mockId })
-                    const resultArticle = find(result.articles, { name: mockName })
+                    const result = find(db.courseList, { id: mockListId })
+                    const resultArticle = find(result.articles, { name: mockArticleName })
                     resultArticle.should.not.be.empty
                     resultArticle.should.eql({
                         id: res.body.data.id,

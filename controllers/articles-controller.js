@@ -29,7 +29,6 @@ router.post('/', (req, res, next) => {
 
     const id = req.body.id
 
-    // Check for name uniqueness
     const findIdList = find(courseListCollection, { id })
     if (!findIdList) {
         res.status(400)
