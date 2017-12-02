@@ -4,7 +4,8 @@ node_js:
 install:
   - npm i
   - npm i -g coveralls
-after_success:
-- ls
-- npm run cover
-- npm run coveralls
+  - npm i -g istanbul
+script:
+  - istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --exit
+  - cat ./coverage/lcov.info | coveralls
+  
