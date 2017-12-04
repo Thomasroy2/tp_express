@@ -6,6 +6,7 @@ mockData = [
 ]
 
 module.exports = {
+
   up: () => {
     courseList.splice(0)
     courseList.push.apply(courseList, mockData)
@@ -14,4 +15,5 @@ module.exports = {
   down: () => {
     courseList.splice(0)
   }
+
 }

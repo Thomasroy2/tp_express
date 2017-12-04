@@ -7,6 +7,7 @@ const db = require('../data/db')
 const courseListCollection = db.courseList
 
 router.post('/', (req, res, next) => {
+
   if (!req.body.name) {
     res.status(400)
     return res.json({
@@ -18,9 +19,8 @@ router.post('/', (req, res, next) => {
   }
 
   const name = req.body.name
-
-  // Check for name uniqueness
   const result = find(courseListCollection, { name })
+
   if (result) {
     res.status(400)
     return res.json({
@@ -37,12 +37,14 @@ router.post('/', (req, res, next) => {
   }
 
   courseListCollection.push(newCourseList)
-
   res.json({
     data: newCourseList
   })
+
 })
+
 router.delete('/',(req,res,next)=>{
+
   if (!req.body.name){
     res.status(400)
     return res.json({
@@ -52,8 +54,8 @@ router.delete('/',(req,res,next)=>{
       }
     })
   }
-  const name = req.body.name
 
+  const name = req.body.name
   const result = find(courseListCollection, { name })
 
   if (!result) {
@@ -65,19 +67,24 @@ router.delete('/',(req,res,next)=>{
       }
     })
   }
-  remove(courseListCollection, {name})
 
+  remove(courseListCollection, {name})
   res.json({
+    data: courseListCollection
   })
+
 })
+
 router.get('/',(req,res,next)=>{
+
   if (courseListCollection.length == 0)
   {
     res.status(204)
   }
+
   res.json({
     data: courseListCollection
   })
-  
+
 })
 module.exports = router

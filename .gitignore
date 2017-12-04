@@ -133,5 +133,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/osx,node,linux,windows,visualstudiocode
+# Coveralls repo_token
+/coveralls.yml
 /.coveralls.yml
+
+# End of https://www.gitignore.io/api/osx,node,linux,windows,visualstudiocode

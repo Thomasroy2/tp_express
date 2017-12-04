@@ -7,6 +7,7 @@ mockDataA = [
 ]
 
 module.exports = {
+
   up: () => {
     courseListFixture.up()
     courseList.forEach(
@@ -16,13 +17,14 @@ module.exports = {
             course.articles.push(mock)
           }
         )
-      });
+      })
   },
 
   down: () => {
     courseList.forEach(
       (course) => {
         course.articles.splice(0)
-      });
+      })
   }
+
 }
