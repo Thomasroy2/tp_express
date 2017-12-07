@@ -10,4 +10,5 @@ script:
   - istanbul cover ./node_modules/mocha/bin/_mocha ./test/**/*.spec.js --exit
   - cat ./coverage/lcov.info | coveralls
 notifications:
-  email: false
+  email: 
+    - jean.pallier@ynov.com
