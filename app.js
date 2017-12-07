@@ -22,10 +22,8 @@ app.use((req, res, next) => {
     error: { code: 'NOT_FOUND', message: 'Page not found' }
   })
 })
-if (!module.parent) {
-  app.listen(1337, () => {
-    console.log('Server launched on port 3000')
-  })
-}
+app.listen(1337, () => {
+  console.log('Server launched on port 1337')
+})
 
 module.exports = app
